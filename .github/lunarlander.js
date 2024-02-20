@@ -1,5 +1,27 @@
 background("#ade8f4");
 
+// Sun
+fill("#ffd700");
+noStroke();
+ellipse(100, 100, 50, 50);
+
+//cloud
+fill("#ffffff");
+noStroke();
+ellipse(300, 50, 30, 20); 
+ellipse(315, 50, 20, 15); 
+ellipse(285, 50, 20, 15);
+
+noStroke();
+ellipse(380, 70, 30, 20); 
+ellipse(395, 70, 20, 15); 
+ellipse(365, 70, 20, 15);
+
+noStroke();
+ellipse(460, 50, 30, 20); 
+ellipse(475, 50, 20, 15); 
+ellipse(445, 50, 20, 15);
+
 // Wings
 fill("#fb6107");
 triangle(185, 200, 175, 240, 195, 240);
