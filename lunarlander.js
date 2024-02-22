@@ -67,7 +67,7 @@ function themeStyle()
    // Sun
    fill("#ffd700");
    noStroke();
-   ellipse(100, 100, 50, 50);
+   ellipse(-100, -100, 50, 50);
 
   //Landing space
   fill("#000000");
@@ -75,23 +75,23 @@ function themeStyle()
 }
   
   function win() {
-    textSize(32);
-    fill(53, 94, 59);
-    text( "You win! Click to play again", 100, 50 );
+    textSize(24);
+    fill("#52b788");
+    text( "You win! Click to play again", -10, 50 );
   }
   
   function loose() {
-    textSize(32);
-    fill(210, 4, 45);
-    text("You lost! Click to play again", 100, 50);
+    textSize(23);
+    fill("#d90429");
+    text("You lost! Click to play again", -10, 50);
   }
   
   function startScreen() {
     rocket(100, rocketY);
-    textSize(32);
-    textAlign(CENTER);
+    textSize(24);
     fill(255);
-    textStyle(BOLD);
+    text("click to start the game", -10, 50);
+
   }
   
   //gravity
