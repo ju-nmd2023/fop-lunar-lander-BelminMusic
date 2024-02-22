@@ -70,7 +70,7 @@ function themeStyle()
    ellipse(-100, -100, 50, 50);
 
   //Landing space
-  fill("#000000");
+  fill("#774936");
   rect(-200, 300, width, 1000);
 }
   
