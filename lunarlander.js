@@ -2,42 +2,12 @@ let x;
 let y;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(600, 600);
   x = 200;
   y = 210;
 }
 
 function rocket(x, y) {
-  background("#90e0ef");
-
-  translate(x, y);
-  // Clouds
-  fill("#ffffff");
-  noStroke();
-  ellipse(300, 50, 30, 20);
-  ellipse(315, 50, 20, 15);
-  ellipse(285, 50, 20, 15);
-
-  ellipse(380, 70, 30, 20);
-  ellipse(395, 70, 20, 15);
-  ellipse(365, 70, 20, 15);
-
-  ellipse(460, 50, 30, 20);
-  ellipse(475, 50, 20, 15);
-  ellipse(445, 50, 20, 15);
-
-  // Flames
-  noStroke();
-  fill("#ff6d00");
-  ellipse(x, y + random(30, 40), 20, 60);
-
-  fill("#ffba08");
-  ellipse(x, y + random(35, 40), 15, 40);
-
-  // Sun
-  fill("#ffd700");
-  noStroke();
-  ellipse(100, 100, 50, 50);
 
   // Spacecraft
   // Wings
@@ -71,10 +41,56 @@ function rocket(x, y) {
   rect(0, height -50, width, 100);
 }
 
-function startScreen() {
-  rocket(250, rocketY)
+let rocketY = -200;
+let velocity = 2;
+let acceleration = 0.2;
+let isGameActive = true;
+
+function themeStyle() {
+    background("#90e0ef");
+
+    translate(x, y);
+    // Clouds
+    fill("#ffffff");
+    noStroke();
+    ellipse(300, 50, 30, 20);
+    ellipse(315, 50, 20, 15);
+    ellipse(285, 50, 20, 15);
+  
+    ellipse(380, 70, 30, 20);
+    ellipse(395, 70, 20, 15);
+    ellipse(365, 70, 20, 15);
+  
+    ellipse(460, 50, 30, 20);
+    ellipse(475, 50, 20, 15);
+    ellipse(445, 50, 20, 15);
+
+   // Sun
+   fill("#ffd700");
+   noStroke();
+   ellipse(100, 100, 50, 50);
+
+  //Landing space
+  fill("#000000");
+  rect(-200, 300, width, 1000);
 }
 
-function draw() {
-  ship()
-}
+function win() {
+    textSize(24);
+    fill("#ffffff")
+    text( "you win! click to play again", 200, 100);
+ }
+
+ function loose() {
+    textSize(24)
+    fill("#ffffff")
+    text("You lost! Click to playu again", 100, 50);
+ }
+
+ function startScreen() {
+    rocket(100, rocketY);
+    textSize(24);
+    fill("#ffffff")
+ }
+
+ 
