@@ -69,7 +69,7 @@ function themeStyle()
    noStroke();
    ellipse(-100, -100, 50, 50);
 
-  //Landing space
+  //Landing space brown color
   fill("#774936");
   rect(-200, 300, width, 1000);
 }
