@@ -94,6 +94,7 @@ function themeStyle()
 
   }
   
+  //from the lectures
   //gravity
   function playScreen() {
     if (isGameActive) {
@@ -152,4 +153,3 @@ function themeStyle()
       rocketY = -200;
     }
   }
-  
