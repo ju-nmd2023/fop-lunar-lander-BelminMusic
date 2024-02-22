@@ -93,4 +93,28 @@ function win() {
     fill("#ffffff")
  }
 
- 
+ //Gravity
+ function gamePlay() {
+    if(isGameActive) {
+        rocketY = rocketY + velocity;
+        velocity = velocity + acceleration;
+        rocket(100, rocketY);
+    }
+
+    if (keyIsDown(40) && isGameActive) {
+        velocity = velocity - 0.5;
+    }
+
+    // Collision detection
+    if (rocketY > 195 && velocity > 3) {
+        rocket(100, rocketY);
+        isGameActive = false;
+        state = "result";
+        loose();
+    } else if (rocketY > 195 && velocity <3) {
+        rocket(100, rocketY);
+        isGameActive = false;
+        state = "result";
+        win();
+    }
+ }
