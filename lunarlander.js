@@ -9,6 +9,7 @@ function setup() {
 
 function rocket(x, y) {
 
+
   // Spacecraft
   // Wings
   fill("#fb6107");
@@ -35,18 +36,16 @@ function rocket(x, y) {
   // Middle detail
   fill("#343a40");
   rect(x - 25, y + 50, 50, 10);
-
-  //Landing space
-  fill("#000000");
-  rect(0, height -50, width, 100);
 }
 
 let rocketY = -200;
-let velocity = 2;
-let acceleration = 0.2;
+let velocity = 1;
+let acceleration = 0.3;
 let isGameActive = true;
 
-function themeStyle() {
+
+function themeStyle()
+{
     background("#90e0ef");
 
     translate(x, y);
@@ -74,47 +73,82 @@ function themeStyle() {
   fill("#000000");
   rect(-200, 300, width, 1000);
 }
-
-function win() {
-    textSize(24);
-    fill("#ffffff")
-    text( "you win! click to play again", 200, 100);
- }
-
- function loose() {
-    textSize(24)
-    fill("#ffffff")
-    text("You lost! Click to playu again", 100, 50);
- }
-
- function startScreen() {
+  
+  function win() {
+    textSize(32);
+    fill(53, 94, 59);
+    text( "You win! Click to play again", 100, 50 );
+  }
+  
+  function loose() {
+    textSize(32);
+    fill(210, 4, 45);
+    text("You lost! Click to play again", 100, 50);
+  }
+  
+  function startScreen() {
     rocket(100, rocketY);
-    textSize(24);
-    fill("#ffffff")
- }
-
- //Gravity
- function gamePlay() {
-    if(isGameActive) {
-        rocketY = rocketY + velocity;
-        velocity = velocity + acceleration;
-        rocket(100, rocketY);
+    textSize(32);
+    textAlign(CENTER);
+    fill(255);
+    textStyle(BOLD);
+  }
+  
+  //gravity
+  function playScreen() {
+    if (isGameActive) {
+      rocketY = rocketY + velocity;
+      velocity = velocity + acceleration;
+      rocket(100, rocketY);
     }
-
+  
     if (keyIsDown(40) && isGameActive) {
-        velocity = velocity - 0.5;
+      velocity = velocity - 0.7;
     }
 
-    // Collision detection
+    //contact with ground
     if (rocketY > 195 && velocity > 3) {
-        rocket(100, rocketY);
-        isGameActive = false;
-        state = "result";
-        loose();
-    } else if (rocketY > 195 && velocity <3) {
-        rocket(100, rocketY);
-        isGameActive = false;
-        state = "result";
-        win();
+      rocket(100, rocketY);
+      isGameActive = false;
+      state = "result";
+      loose();
+    } else if (rocketY > 195 && velocity < 3) {
+      rocket(100, rocketY);
+      isGameActive = false;
+      state = "result";
+      win();
     }
- }
+  }
+  
+  let state = "start";
+  
+  function draw() {
+    themeStyle();
+  
+    if (state === "start") {
+      startScreen();
+    }
+    if (isGameActive && state === "game") {
+      playScreen();
+    } else if (isGameActive == false && state === "result") {
+      playScreen();
+    }
+  }
+  
+  // start the game
+  function mouseClicked() {
+    if (state === "start") {
+      state = "game";
+    } else if (state === "game" && isGameActive == false) {
+      state = "result";
+      isGameActive = true;
+      velocity = 2;
+      rocketY = -200;
+    } else if (state === "result") {
+      state = "game";
+      //start the game again;
+      isGameActive = true;
+      velocity = 2;
+      rocketY = -200;
+    }
+  }
